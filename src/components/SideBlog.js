@@ -6,7 +6,7 @@ import categoryService from './../services/categoryService';
 import commentService from './../services/commentService';
 import blogService from './../services/blogService';
 
-function Header() {
+function SideBlog() {
 
   const [allCategories, setAllCategory] = useState(null);
   const [commentData, setCommentData] = useState(null);
@@ -120,4 +120,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default SideBlog;
