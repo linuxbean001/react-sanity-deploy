@@ -6,6 +6,9 @@ import sanityClient from "../client.js";
 import BlockContent from "@sanity/block-content-to-react";
 import Moment from 'moment';
 import blogService from './../services/blogService';
+import { Modal } from 'react-bootstrap';
+import '../App.css';
+
 
 function MainPage() {
 
@@ -15,6 +18,14 @@ function MainPage() {
         setAllPosts(data)
       });
   }, []);
+
+  const [modalShow, setModalShow] = React.useState(0);
+  const showModal = (value) => {
+    setModalShow(value);
+  };
+  const hideModal = (value) => {
+    setModalShow(0);
+  };
 
   return (
     <>
@@ -64,11 +75,33 @@ function MainPage() {
                      <div className="col-12 col-md-4">
                       <img src={post.mainImage.asset.url} className="card-img" alt="..."/>
                      </div>
-                      <div className="col-12 col-md-8">
+                      <div className="col-12 col-md-8 blogCharLimit">
                         <BlockContent blocks={post.body} 
                         projectId={sanityClient.clientConfig.projectId}
                         dataset={sanityClient.clientConfig.dataset}/>
-                        <Link to="#" className="readmore">Read More</Link>
+                        <Link onClick={() => showModal(post._id)} className="readmore">Read More</Link>
+                        
+                        <Modal
+                        show={modalShow === post._id}
+                        onHide={() => hideModal(post._id)}
+                        size="lg"
+                        aria-labelledby="contained-modal-title-vcenter"
+                        centered>
+                        <Modal.Header closeButton>
+                          <Modal.Title id="contained-modal-title-vcenter">
+                          
+                          </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                        <div className="row">
+                          <div className="col-12">
+                          <BlockContent blocks={post.body} 
+                        projectId={sanityClient.clientConfig.projectId}
+                        dataset={sanityClient.clientConfig.dataset}/>
+                          </div>             
+                        </div> 
+                        </Modal.Body>
+                      </Modal>
                      </div>
                    </div>
                    </div>

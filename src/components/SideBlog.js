@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Moment from 'moment';
 import { useParams } from "react-router-dom";
 import categoryService from './../services/categoryService';
@@ -9,6 +9,7 @@ import blogService from './../services/blogService';
 function SideBlog() {
 
   const [allCategories, setAllCategory] = useState(null);
+  const [allTags, setAllTags] = useState(null);
   const [commentData, setCommentData] = useState(null);
   const [allPostsData, setAllPosts] = useState(null);
   const { slug } = useParams();
@@ -26,7 +27,13 @@ function SideBlog() {
         setAllPosts(data)
       });
 
+      new blogService().getBlogTagsBySlug(slug).then(data => {
+        setAllTags(data)
+      });
+
   }, [slug]);
+  
+  const location = useLocation();
 
   return (
     <>
@@ -96,19 +103,14 @@ function SideBlog() {
 
      </div> 
 
-      <div className="topRightCate tags">
-       <h3>Tags</h3>
-        <Link to="#">B2B</Link>
-        <Link to="#">Growing</Link>
-        <Link to="#">Software </Link>
-        <Link to="#" className="odd">Staff</Link>
-        <Link to="#">B2B</Link>
-        <Link to="#">B2B</Link>
-        <Link to="#" className="odd">Growing</Link>
-        <Link to="#">Software </Link>
-        <Link to="#">Staff</Link>
-        <Link to="#">B2B</Link>
-     </div>  
+     {(location.pathname === "/blog-detail/"+slug)?
+        (<div className="topRightCate tags">
+          <h3>Tags</h3>
+          {allTags && allTags.tags.map ((tags, index) => (
+            <Link key={index} to="#">{tags}</Link>
+          ))}
+        </div>)
+      : ('')} 
       <div className="topRightCate folloemail">
             <h3>The Arcadea Brief</h3>
             <p>Join the Arcadea Brief, where we share our latest ideas and lessons learned, straight to your inbox.</p>

@@ -63,5 +63,18 @@ class blogService {
       .catch(console.error);
   }
 
+  async getBlogTagsBySlug(slug) {
+    return sanityClient
+      .fetch(
+        `*[_type == "post" && slug.current == $slug]{
+          _id,
+        tags,
+       }`,
+        { slug }
+      )
+      .then((data) => { return data[0] })
+      .catch(console.error);
+  }s
+
 }
 export default blogService;
