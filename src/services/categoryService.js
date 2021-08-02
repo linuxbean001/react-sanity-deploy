@@ -9,9 +9,13 @@ class categoryService {
         _id,
         _type,
         title,
+        'posts': *[_type == "post" && category._ref == ^._id]{
+            _id, 
+            title, 
+        }
       }`)
       .then((data) => {return data })
-      .catch(console.error);
+      .catch(console.error); 
   }
 
 }

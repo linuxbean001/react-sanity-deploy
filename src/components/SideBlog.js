@@ -96,7 +96,7 @@ function SideBlog() {
       {allCategories && allCategories.map((category, index) => (
         <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
          <Link to="#">{category.title}</Link>
-          <span className="badge badge-primary badge-pill">12</span>
+          <span className="badge badge-primary badge-pill">{(category.posts) ? category.posts.length : 0}</span>
         </li>
         ))}
       </ul>

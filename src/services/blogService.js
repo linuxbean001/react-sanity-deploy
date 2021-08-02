@@ -18,7 +18,7 @@ class blogService {
         body,
         "name": author->name,
         publishedAt,
-        "categories": categories[]->title,
+        "category": category->title,
         "authorImage": author->image,
         'comments': *[_type == "comment" && post._ref == ^._id]{
             _id, 
@@ -33,6 +33,7 @@ class blogService {
   }
 
   async getBlogBySlug(slug) {
+    if(slug !== undefined){
     return sanityClient
       .fetch(
         `*[_type == "post" && slug.current == $slug]{
@@ -48,7 +49,7 @@ class blogService {
          body,
         "name": author->name,
         publishedAt,
-        "categories": categories[]->title,
+        "category": category->title,
         'comments': *[_type == "comment" && post._ref == ^._id]{
             _id, 
             name, 
@@ -61,9 +62,11 @@ class blogService {
       )
       .then((data) => { return data[0] })
       .catch(console.error);
+    }
   }
 
   async getBlogTagsBySlug(slug) {
+    if(slug !== undefined){
     return sanityClient
       .fetch(
         `*[_type == "post" && slug.current == $slug]{
@@ -74,7 +77,9 @@ class blogService {
       )
       .then((data) => { return data[0] })
       .catch(console.error);
-  }s
+    
+    }
+  }
 
 }
 export default blogService;

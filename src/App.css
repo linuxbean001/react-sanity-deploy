@@ -36,6 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
 .blogCharLimit{
   overflow: hidden;
   max-width: 60ch;
