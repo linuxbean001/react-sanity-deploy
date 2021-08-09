@@ -12,6 +12,7 @@ import commentService from './../services/commentService';
 import { useForm } from 'react-hook-form';
 import toaster from './../helpers/toaster';
 import { ToastContainer } from 'react-toastify';
+import Image from 'react-bootstrap/Image';
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -31,7 +32,8 @@ function BlogDetail() {
   }, [slug]);
 
   const onSubmit = (data, e) => {
-    //console.log(data)
+    console.log(data)
+    console.log(postData);
     new commentService().createComments(data).then(res => {
       if(res === "Success"){
         new toaster().successMessage("comments added successfully.");
@@ -59,8 +61,12 @@ function BlogDetail() {
     />
     <main>
       <header className="Hero Hero--philosophy blogDetails">
-        <figure className="Hero__background"><img src={process.env.PUBLIC_URL+'/images/blog-bg.jpg'} alt=""/></figure>
-        <h1>{postData.title}</h1>
+        <figure className="Hero__background">
+          <Image fluid src={process.env.PUBLIC_URL+'/images/blog-bg.jpg'} alt=""/>
+        </figure>
+        <Link className= "text-decoration-none text-dark text-uppercase" to="/">
+        <h4 className="container text-uppercase">HOME</h4>
+        </Link>
       </header>
     </main>
     <section className="blogsection detailsb">
@@ -69,7 +75,7 @@ function BlogDetail() {
         <div className="col-12 col-md-8">
         <div className="blogwrap" data-aos="clogo" data-aos-once="true" data-aos-duration="1200">
           <div className="blog-post">
-            <h2>{postData.title}</h2>
+            <h2 className= "text-uppercase">{postData.title}</h2>
                 <p className="lastupdate">
                 <Link to="#"><i className="fa fa-user-circle-o"></i> {postData.name}</Link>
                 <i className="fa fa-calendar"></i> {Moment(postData.publishedAt).format('MMM DD, YYYY')}

@@ -43,3 +43,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.d-flex .p-2{
+  text-decoration: none;
+  color: black;
+}

@@ -26,7 +26,7 @@ function Posts(props) {
     {props.posts && props.posts.map((post, index) => (
         <div key={index} className="blogwrap" data-aos="clogo" data-aos-once="true" data-aos-duration="1200">
           <div className="blog-post">
-            <h2><Link to={"/blog-detail/" + post.slug.current} key={post.slug.current}>{post.title}</Link></h2>
+            <h2><Link className= "text-uppercase" to={"/blog-detail/" + post.slug.current} key={post.slug.current}>{post.title}</Link></h2>
                 <p className="lastupdate">
                 <Link to="#"><i className="fa fa-user-circle-o"></i> {post.name}</Link>
                 <i className="fa fa-calendar"></i> {Moment(post.publishedAt).format('MMM DD, YYYY')}

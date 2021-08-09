@@ -4,6 +4,12 @@ export default {
   title: 'Comment',
   fields: [
     {
+      name: "order",
+      title: "Order (default)",
+      type: "number",
+      hidden: true,
+    },
+    {
       name: 'name',
       type: 'string',
     },
