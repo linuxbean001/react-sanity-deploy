@@ -5,7 +5,7 @@ class commentService {
   async getAllComments(slug) {
     if(slug !== undefined){
       return sanityClient.fetch(
-        `*[_type == "post" && slug.current == $slug] | order(order asc) {
+        `*[_type == "post" && slug.current == $slug] | order(_createdAt desc) {
             'comments': *[_type == "comment" && post._ref == ^._id]{
                 _id, 
                 name, 

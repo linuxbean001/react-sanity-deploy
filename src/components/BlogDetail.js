@@ -32,11 +32,12 @@ function BlogDetail() {
   }, [slug]);
 
   const onSubmit = (data, e) => {
-    console.log(data)
-    console.log(postData);
     new commentService().createComments(data).then(res => {
       if(res === "Success"){
         new toaster().successMessage("comments added successfully.");
+        new blogService().getBlogBySlug(slug).then(data => {
+          setPostData(data)
+        });
         e.target.reset();
       }else{
         new toaster().errorMessage("Error");

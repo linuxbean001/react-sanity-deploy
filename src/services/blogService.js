@@ -5,7 +5,7 @@ class blogService {
   async getAllPostData() {
     return sanityClient
       .fetch(
-        `*[_type == "post"] | order(order asc){
+        `*[_type == "post"] | order(publishedAt desc){
         _id,
         title,
         slug,
