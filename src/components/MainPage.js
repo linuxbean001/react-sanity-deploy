@@ -22,6 +22,7 @@ function MainPage() {
         setLoading(false);
       });
   }, []);
+  console.log(allPostsData)
 
   const indexOfLastPost = currentPage * postsPerPage;
 
