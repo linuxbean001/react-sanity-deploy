@@ -7,16 +7,16 @@ export default {
           sites: [
             {
               title: 'Sanity Studio',
-              apiId: 'xxxxx-yyyy-zzzz-xxxx-yyyyyyyy',
-              buildHookId: 'xxxyyyxxxyyyyxxxyyy',
-              name: 'sanity-gatsby-blog-20-studio',
+              apiId: 'dzp73orv',
+              buildHookId: '',
+              name: 'https://stoic-perlman-e0486b.netlify.app/studio',
             },
             {
               title: 'Website',
               apiId: '5c6de134-c5e0-4ace-a6dd-ca7b4329e511',
-              buildHookId: 'yyyyxxxxxyyyxxdxxx',
-              name: 'sanity-gatsby-blog-20-web',
-              url: 'https://my-sanity-deployment.com',
+              buildHookId: '611e0908a5127cb572f970ce',
+              name: 'stoic-perlman-e0486b',
+              url: 'https://stoic-perlman-e0486b.netlify.app/',
             }
           ]
         }
