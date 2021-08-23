@@ -49,14 +49,14 @@ nav.Nav a{font-weight: bold; color: #131111;}
 }
 
 .footerform{
-    margin: auto;
+    margin-top: 90px ;
 }
 .news-subscription {
     border: solid 1px #f1ede2;
     margin: 0;
     display: flex;
     justify-content: space-between;
-    width: 70%;
+    width: 60%;
     padding: 10px;
     }
     .news-subscription input {
@@ -81,6 +81,8 @@ nav.Nav a{font-weight: bold; color: #131111;}
 .footerimage{
     background: no-repeat 0;
     background-size: auto 101%;
+    margin-top: -16px;
+    margin-left: -16px;
 }
 
 .blogContent {
@@ -312,14 +314,6 @@ a:hover.readmorebig {
     font-weight: 500;
 }
 
-.topMenu ul li {
-    display: inline-block;
-    padding: 15px;
-    border: 1px solid #ccc;
-    margin-right: 2px;
-    text-transform: uppercase;
-}
-
 [data-aos="clogo"] {  
   opacity: 0;
   transition: all 2s;  
@@ -335,6 +329,7 @@ a:hover.readmorebig {
     background: #7ca7bd;
     min-width: 25px;
     }
+    
 }
 
 @media (max-width: 1200px){
@@ -360,6 +355,13 @@ a:hover.readmorebig {
     }
     .readpost{
         width: 27% !important;
+    }
+    .topRightCate .badge {
+        min-width: 25px;
+    }
+
+    .footerimage{
+        display: none;
     }
 }
 header.Hero-Inner.Hero.Hero--philosophy {
@@ -581,7 +583,9 @@ span.comments-type {
 .topMenu ul li {
     display: inline-block;
     padding: 15px;
-    border: solid 1px #ccc;
+    border: 1px solid #ccc;
+    margin-right: 2px;
+    text-transform: uppercase;
 }
 .topMenu {
     text-align: center;
