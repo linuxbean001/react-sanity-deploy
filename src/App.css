@@ -37,14 +37,3 @@
   }
 }
 
-.blogCharLimit{
-  overflow: hidden;
-  max-width: 60ch;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.d-flex .p-2{
-  text-decoration: none;
-  color: black;
-}

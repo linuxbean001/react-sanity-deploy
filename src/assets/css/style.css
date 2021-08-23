@@ -1,3 +1,15 @@
+@font-face {
+    font-family: Axiforma;
+    src: url(../FontsFree-Net-sddd4.ttf);
+
+
+  }
+  
+  *{
+    font-family: Axiforma;
+    color: #000;
+  }
+
 
 
 /*blog css*/
@@ -7,9 +19,28 @@ body{color: #221f1f;}
 a{
 	transition: all 0.5s;
 }
+.navi{
+    float: right;
+}
+.navigation{
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    padding-right: 30px;
+    font-size: 18px;
+    
+}
 
+.Nav img{
+    height: 40px;
+    weight: 40px;
+    float: left;
+}
 
-nav.Nav a{font-weight: bold; color: #221f1f;}
+.Nav__hamburger{
+    display:none;
+}
+nav.Nav a{font-weight: bold; color: #131111;}
 .Footer nav a{color: #fff;}
 .welcometext{
 	font-size: var(--f-18);
@@ -76,7 +107,22 @@ a.readmore {
     border-radius: 2px;
 }
 a:hover.readmore{color: #fff; background: #0f6fa0;}
+.readpostmain{
+    display: flex;
+    justify-content: flex-end;
 
+}
+.readpost{
+    color: #fff;
+    text-decoration: none;
+    background: #000;
+    border-radius: 2px;
+    width: 19% !important;
+    padding: 4px 20px 8px 20px;
+}
+.readpost:hover{
+    color: #fff; background: #0f6fa0;
+}
 .entry2 .excerpt {
     padding-left: 20px;
     padding-right: 20px;
@@ -248,18 +294,37 @@ a:hover.readmorebig {
 
 
 @media (min-width: 1440px){
-.bigimg img {
+/* .bigimg img {
     max-width: 100%;
     max-height: 630px;
+} */
 }
+
+@media (max-width: 1200px){
+    .Nav__hamburger{
+        display: block;
+        float: right;
+    }
+    .navi{
+        position:absolute;
+        width: 100%;
+        background-color: white;
+        top: -120%;
+        left: 0px;
+        transition: 0.5s;
+        text-align: center;        
+    }
+    .navi.active{
+        top:110px;
+    }
+    .navigation{
+        display: block;
+        padding-bottom: 25px;
+    }
+    .readpost{
+        width: 27% !important;
+    }
 }
-@media (min-width: 769px) and (max-width: 980px){
-/*.bigimg img {
-    max-width: 100%;
-    max-height: 400px;
-    background: red;
-}
-}*/
 header.Hero-Inner.Hero.Hero--philosophy {
     min-height: fit-content;
 }
@@ -270,13 +335,12 @@ header.Hero.Hero--philosophy.Hero-Inner h1 {
     margin-bottom: 2.75rem;
 }
 
-}
 .Hero figure {
     
     margin: 0;
 }
 section.blogsection {
-    background: #eae8e8;
+    background: #ffffff;
     margin: 0;
 }
 
@@ -356,7 +420,21 @@ span.comments-type {
     border: 1px solid #cccccc;
     transition: all .17s ease;
 }
-
+.whats-next {
+    height: 125px;
+    overflow: hidden;
+    display: block;
+    margin-bottom: 20px;
+    white-space: break-spaces;
+    text-overflow: ellipsis;
+    padding: 20px;
+}
+.whats-next p:nth-child(3) {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
 
 .topRight ul li {
     display: inline-block;
@@ -474,7 +552,6 @@ span.comments-type {
 }
 .topMenu ul li a {
     text-decoration: none;
-    text-transform: uppercase;
     color: #221f1f;
     font-weight: 500;
 }

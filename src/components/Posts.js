@@ -4,6 +4,7 @@ import { Modal } from 'react-bootstrap';
 import sanityClient from "../client.js";
 import BlockContent from "@sanity/block-content-to-react";
 import Moment from 'moment';
+import '../assets/css/style.css';
 
 function Posts(props) {
 
@@ -26,7 +27,7 @@ function Posts(props) {
     {props.posts && props.posts.map((post, index) => (
         <div key={index} className="blogwrap" data-aos="clogo" data-aos-once="true" data-aos-duration="1200">
           <div className="blog-post">
-            <h2><Link className= "text-uppercase" to={"/blog-detail/" + post.slug.current} key={post.slug.current}>{post.title}</Link></h2>
+            <h2><Link to={"/blog-detail/" + post.slug.current} key={post.slug.current} className="text-capitalize">{post.title}</Link></h2>
                 <p className="lastupdate">
                 <Link to="#"><i className="fa fa-user-circle-o"></i> {post.name}</Link>
                 <i className="fa fa-calendar"></i> {Moment(post.publishedAt).format('MMM DD, YYYY')}
@@ -41,13 +42,15 @@ function Posts(props) {
              <div className="col-12 col-md-4">
               <img src={post.mainImage.asset.url} className="card-img" alt="..."/>
              </div>
-              <div className="col-12 col-md-8 blogCharLimit">
+              <div className="col-12 col-md-8 whats-next">
                 <BlockContent blocks={post.body} 
                 projectId={sanityClient.clientConfig.projectId}
                 dataset={sanityClient.clientConfig.dataset}/>
-                <Link to="#" onClick={() => showModal(post._id)} className="readmore">Read More</Link>
-                
-                <Modal
+              </div>
+              <div className="readpostmain">
+              <Link to="#" onClick={() => showModal(post._id)} className="readpost">Read More</Link>
+              </div>
+              <Modal
                 show={modalShow === post._id}
                 onHide={() => hideModal(post._id)}
                 size="lg"
@@ -62,13 +65,12 @@ function Posts(props) {
                 <div className="row">
                   <div className="col-12">
                   <BlockContent blocks={post.body} 
-                projectId={sanityClient.clientConfig.projectId}
-                dataset={sanityClient.clientConfig.dataset}/>
+                    projectId={sanityClient.clientConfig.projectId}
+                    dataset={sanityClient.clientConfig.dataset}/>
                   </div>             
                 </div> 
                 </Modal.Body>
-              </Modal>
-             </div>
+              </Modal>   
            </div>
            </div>
            ))}

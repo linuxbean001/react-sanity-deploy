@@ -73,7 +73,7 @@ function SideBlog() {
                       </div>
                       <div className="col-12 col-md-8">
                       <p>
-                        <Link className= "text-decoration-none text-dark text-uppercase" to={"/blog-detail/" + post.slug.current} key={post.slug.current}> <b>{post.title}</b> </Link>
+                        <Link className= "text-decoration-none text-capitalize text-dark" to={"/blog-detail/" + post.slug.current} key={post.slug.current}> <b>{post.title}</b> </Link>
                       </p>
                       <i className="fa fa-calendar"></i> {moment(post.publishedAt).format('MMM DD, YYYY')}
                       </div>
@@ -88,7 +88,7 @@ function SideBlog() {
                     </div>
                     <div className="col-12 col-md-8">
                       <p>
-                        <Link className= "text-decoration-none text-dark text-uppercase" to={"/blog-detail/" + post.slug.current} key={post.slug.current}><b>{post.title}</b></Link>
+                        <Link className= "text-decoration-none text-capitalize text-dark" to={"/blog-detail/" + post.slug.current} key={post.slug.current}><b>{post.title}</b></Link>
                       </p>
                       <i className="fa fa-calendar"></i> {moment(post.publishedAt).format('MMM DD, YYYY')}
                     </div>
@@ -122,7 +122,7 @@ function SideBlog() {
      {(location.pathname === "/blog-detail/"+slug)?
         (<div className="topRightCate tags">
           <h3>Tags</h3>
-          {allTags && allTags.tags.map ((tags, index) => (
+          {allTags && allTags.tags.map((tags, index) => (
             <Link key={index} to="#">{tags}</Link>
           ))}
         </div>)

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import RecentBlog from './RecentBlog';
 import SideBlog from './SideBlog';
 import blogService from './../services/blogService';
-import '../App.css';
+import '../assets/css/style.css';
 import Pagination from "./Pagination";
 import Posts from "./Posts";
 import Image from 'react-bootstrap/Image';
@@ -22,7 +22,6 @@ function MainPage() {
         setLoading(false);
       });
   }, []);
-  console.log(allPostsData)
 
   const indexOfLastPost = currentPage * postsPerPage;
 
@@ -38,15 +37,14 @@ function MainPage() {
     <>
     <main>
         <header className="Hero Hero--philosophy">
-          <figure className="Hero__background"><Image fluid  src={process.env.PUBLIC_URL+'/images/blog-bg.jpg'} alt=""/></figure>
-          <h3 className="container text-uppercase">OUR BLOG</h3> 
+          <figure className="Hero__background"><Image fluid src={process.env.PUBLIC_URL+'/images/banner2.jpg'} alt=""/></figure>
         </header>
     </main>
     <section className="blogsection">
         <div className="container">
           <div className="row d-flex justify-content-center mb-5 pt-5">
           <div className="col-12">
-              <p className="welcometext"><b>Our blogs</b> are written to Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
+              <p className="welcometext"></p>
           </div>
         </div>
         </div>

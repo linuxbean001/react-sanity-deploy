@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import sanityClient from "../client.js";
-import BlockContent from "@sanity/block-content-to-react";
 import * as moment from 'moment';
 import imageUrlBuilder from "@sanity/image-url";
 import blogService from './../services/blogService';
+import '../assets/css/style.css';
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -48,17 +48,13 @@ function RecentBlog() {
                     <Link to={"/blog-detail/" + post.slug.current}><img src={post.mainImage.asset.url} alt="Image1" className="img-fluid rounded"/></Link>
                 </div>
                 <div className="excerpt">
-                  <span className="post-category mb-1">{post.categories}</span>
-                  <h2><Link to={"/blog-detail/" + post.slug.current}>{post.title}</Link></h2>
+                  <span className="post-category ">{post.categories}</span>
+                  <h2><Link className="text-capitalize" to={"/blog-detail/" + post.slug.current}>{post.title}</Link></h2>
                   <div className="post-meta align-items-center text-left clearfix">
                   <figure className="author-figure"><img src={urlFor(post.authorImage).url()} alt="Image2" className="img-fluid"/></figure>
                   <span className="d-inline-block mt-1">By <Link to="#">{post.name}</Link></span>
                   <span>&nbsp;-&nbsp; {moment(post.publishedAt).format('MMM DD, YYYY')}</span>
                   </div>
-                  <BlockContent blocks={post.body} 
-                  projectId={sanityClient.clientConfig.projectId}
-                  dataset={sanityClient.clientConfig.dataset}/>
-                  <p><Link to="#">Read More</Link></p>
                 </div>
               </div>
           </div>

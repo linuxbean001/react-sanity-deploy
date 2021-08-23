@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './assets/css/style.css';
-import './assets/font-awesome/css/font-awesome.min.css';
 import './assets/css/aos.css';
 import './assets/css/bootstrap.min.css';
 import App from './App';
