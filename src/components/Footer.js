@@ -8,15 +8,22 @@ import '../assets/css/style.css';
 function Footer() {
   return (
    <Container fluid className="pt-3 bg-dark">
-      <footer className="Footer m-5">
-         <Row className="p-5">
-            <Col className=" mr-5 d-flex justify-content-end">
-               <form action="https://arcadeagroup.us6.list-manage.com/subscribe/post" method="POST">
-                  <input type="hidden" name="u" value="526cde56bb3f37173cfaa0a6b"/><input type="hidden" name="id" value="256e73495e"/>
-                  <h3 className="text-white ">The Arcadea Brief</h3>
-                  <p className="text-white ">Join the Arcadea Brief, where we share <br/> our latest ideas and lessons learned, <br/> straight to your inbox.</p>
-                  <div><input type="email" className="p-2 border border-white bg-dark" name="EMAIL" placeholder="Your email" required=""/><a className="readmore" href="/" type="submit">Sign&nbsp;up</a></div>
-               </form>
+      <footer className="Footer">
+         <Row>
+            <Col className="d-flex justify-content-start">
+               <div className="footerimage">
+                  <img src="https://www.arcadeagroup.com/a-footer.svg"></img>
+               </div>
+               <div className="footerform">
+                  <form action="https://arcadeagroup.us6.list-manage.com/subscribe/post" method="POST">
+                     <input type="hidden" name="u" value="526cde56bb3f37173cfaa0a6b"/><input type="hidden" name="id" value="256e73495e"/>
+                     <h3 className="text-white ">The Arcadea Brief</h3>
+                     <p className="text-white ">Join the Arcadea Brief, where we share <br/> our latest ideas and lessons learned, <br/> straight to your inbox.</p>
+                     <div className="news-subscription">
+                        <input type="email" className="p-2 border border-white bg-dark" name="EMAIL" placeholder="Your email" required=""/><a className="readmore" href="/" type="submit">Sign&nbsp;up</a>
+                     </div>
+                  </form>
+               </div>
             </Col>
             
          </Row>
